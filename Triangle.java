@@ -3,20 +3,20 @@ import java.util.Random;
 public class Triangle
 {
   // triangle sides
-  protected double a = 0;
-  protected double b = 0;
-  protected double c = 0;
+  protected final double a;
+  protected final double b;
+  protected final double c;
 
   // triangle interior angles
-  protected double alpha = 0;
-  protected double beta = 0;
-  protected double gamma = 0;
+  protected final double alpha;
+  protected final double beta;
+  protected final double gamma;
 
   // triangle area
-  protected double area = 0;
+  protected final double area;
 
   // triangle kind: equilateral, isosceles, or scalene
-  protected String kind = "";
+  private final String kind;
 
   // constructs a triangle with the given lengths if possible
   public Triangle (double a, double b, double c) {
@@ -27,32 +27,26 @@ public class Triangle
     this.a = a;
     this.b = b;
     this.c = c;
-    this.angles();
-    this.area();
-    this.kind();
-  }
-
-  // applies utility based on the cosine law to obtain the interior angles
-  private void angles ()
-  {
     final double[] angles = Util.angles(this.a, this.b, this.c);
     this.alpha = angles[0];
     this.beta = angles[1];
     this.gamma = angles[2];
-  }
-
-  // forwards the task of computing the triangle area to designated utility
-  private void area ()
-  {
     final double base = this.b;
     final double height = this.a * Math.sin(gamma);
     this.area = Util.area(base, height);
+    this.kind = Util.kind(this.a, this.b, this.c);
   }
 
-  // determines the kind of triangle based on the given lengths
-  private void kind ()
+  // gets triangle area
+  public double area ()
   {
-    this.kind = Util.kind(this.a, this.b, this.c);
+    return this.area;
+  }
+
+  // gets the triangle kind
+  public String kind ()
+  {
+    return this.kind;
   }
 
   // displays the triangle info on the console

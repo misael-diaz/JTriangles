@@ -3,7 +3,9 @@ public class EquilateralTriangle extends Triangle
   // for preventing debugging code from executing
   private boolean verbose = false;
   // equilateral triangle sides
-  private double x = 0;
+  private final double x;
+  // equilateral triangle area
+  private final double area;
   // equilateral triangle interior angles
   private final double theta = Math.PI / 3;
 
@@ -11,20 +13,7 @@ public class EquilateralTriangle extends Triangle
   public EquilateralTriangle (double x) {
     super(x, x, x);
     this.x = x;
-    this.area();
-    // although the constructor of the base class properly sets the kind we do so here
-    this.kind = "equilateral";
-  }
-
-  // implements a radians-to-degrees utility method
-  private double rad2deg (double theta)
-  {
-    return ((180.0 / Math.PI) * theta);
-  }
-
-  // computes the area of an equilateral triangle
-  private void area ()
-  {
+    // computes the area of an equilateral triangle
     this.area = (0.25 * Math.sqrt(3) * this.x * this.x);
   }
 
@@ -32,28 +21,15 @@ public class EquilateralTriangle extends Triangle
   public void info ()
   {
     System.out.println();
-    System.out.printf("kind: %s\n", this.kind);
-    System.out.printf("x: %f theta: %f\n", this.x, rad2deg(this.theta));
+    System.out.printf("kind: %s\n", this.kind());
+    System.out.printf("x: %f theta: %f\n", this.x, Util.rad2deg(this.theta));
     System.out.printf("area: %f\n", this.area);
     if (verbose) {
-      System.out.printf("a: %f alpha: %f\n", this.a, rad2deg(this.alpha));
-      System.out.printf("b: %f beta: %f\n", this.b, rad2deg(this.beta));
-      System.out.printf("c: %f gamma: %f\n", this.c, rad2deg(this.gamma));
+      System.out.printf("a: %f alpha: %f\n", this.a, Util.rad2deg(this.alpha));
+      System.out.printf("b: %f beta: %f\n", this.b, Util.rad2deg(this.beta));
+      System.out.printf("c: %f gamma: %f\n", this.c, Util.rad2deg(this.gamma));
     }
     System.out.println();
-  }
-
-  // tests that we get the same triangle area regardless of the used formula
-  private boolean test ()
-  {
-    final double tol = 2.3283064365386963e-10;
-    final double a0 = this.area;
-    final double a1 = (0.5 * this.x * this.x * Math.sin(this.theta));
-    if (Math.abs(a1 - a0) > tol) {
-      return true;
-    } else {
-      return false;
-    }
   }
 
   public static void main (String args[])
