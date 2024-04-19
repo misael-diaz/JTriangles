@@ -20,7 +20,7 @@ public class Triangle
 
   // constructs a triangle with the given lengths if possible
   public Triangle (double a, double b, double c) {
-    if (invalid(a, b, c)) {
+    if (!Util.validate(a, b, c)) {
       String errmsg = "Triangle: impossible to construct triangle with given lenghts";
       throw new IllegalArgumentException(errmsg);
     }
@@ -32,41 +32,27 @@ public class Triangle
     this.kind();
   }
 
-  // implements a radians-to-degrees utility method
-  private double rad2deg (double theta)
-  {
-    return ((180.0 / Math.PI) * theta);
-  }
-
-  // applies the cosine law to obtain the interior angles
+  // applies utility based on the cosine law to obtain the interior angles
   private void angles ()
   {
-    final double cos_alpha = 0.5 * (((b * b) + (c * c) - (a * a)) / (b * c));
-    final double cos_beta = 0.5 * (((a * a) + (c * c) - (b * b)) / (a * c));
-    final double alpha = Math.acos(cos_alpha);
-    final double beta = Math.acos(cos_beta);
-    final double gamma = (Math.PI - alpha - beta);
-    this.alpha = alpha;
-    this.beta = beta;
-    this.gamma = gamma;
+    final double[] angles = Util.angles(this.a, this.b, this.c);
+    this.alpha = angles[0];
+    this.beta = angles[1];
+    this.gamma = angles[2];
   }
 
-  // computes the triangle area
+  // forwards the task of computing the triangle area to designated utility
   private void area ()
   {
     final double base = this.b;
     final double height = this.a * Math.sin(gamma);
-    this.area = (0.5 * base * height);
+    this.area = Util.area(base, height);
   }
 
   // determines the kind of triangle based on the given lengths
   private void kind ()
   {
-    if (this.a == this.b) {
-      this.kind = (this.a == this.c)? "equilateral" : "isosceles";
-    } else {
-      this.kind = (this.a == this.c)? "isosceles" : "scalene";
-    }
+    this.kind = Util.kind(this.a, this.b, this.c);
   }
 
   // displays the triangle info on the console
@@ -74,25 +60,17 @@ public class Triangle
   {
     System.out.println();
     System.out.printf("kind: %s\n", this.kind);
-    System.out.printf("a: %f alpha: %f\n", a, rad2deg(this.alpha));
-    System.out.printf("b: %f beta: %f\n", b, rad2deg(this.beta));
-    System.out.printf("c: %f gamma: %f\n", c, rad2deg(this.gamma));
+    System.out.printf("a: %f alpha: %f\n", a, Util.rad2deg(this.alpha));
+    System.out.printf("b: %f beta: %f\n", b, Util.rad2deg(this.beta));
+    System.out.printf("c: %f gamma: %f\n", c, Util.rad2deg(this.gamma));
     System.out.printf("area: %f\n", this.area);
     System.out.println();
   }
 
-  // tests that we get the same triangle area regardless of the used formula
-  private boolean test ()
+  // tests that the triangle lenghts and interior angles are consistent: yield same area
+  private boolean hasConsistentAttributes ()
   {
-    final double tol = 2.3283064365386963e-10;
-    final double a0 = (0.5 * a * b * Math.sin(gamma));
-    final double a1 = (0.5 * a * c * Math.sin(beta));
-    final double a2 = (0.5 * b * c * Math.sin(alpha));
-    if (Math.abs(a1 - a0) > tol || Math.abs(a2 - a0) > tol || Math.abs(a2 - a1) > tol) {
-      return true;
-    } else {
-      return false;
-    }
+    return Util.checkArea(this.a, this.b, this.c, this.alpha, this.beta, this.gamma);
   }
 
   public static void main (String args[])
@@ -106,16 +84,6 @@ public class Triangle
     t.info();
     t = new Triangle(3, 4, 6);
     t.info();
-  }
-
-  // returns true if it is not possible to construct a triangle with the given lengths
-  private static boolean invalid (final double a, final double b, final double c)
-  {
-    if (a <= 0 || b <= 0 || c <= 0) {
-      return true;
-    }
-    // performs a geometric constraint test based on the fact that |cos(x)| <= 1
-    return ((0.5 * Math.abs(((b * b) + (c * c) - (a * a)) / (b * c))) >= 1.0);
   }
 
   // conduct areas tests with random triangles
@@ -132,9 +100,9 @@ public class Triangle
 	a = r_min + r.nextDouble() * (r_max - r_min);
 	b = r_min + r.nextDouble() * (r_max - r_min);
 	c = r_min + r.nextDouble() * (r_max - r_min);
-      } while (invalid(a, b, c));
+      } while (!Util.validate(a, b, c));
       Triangle t = new Triangle(a, b, c);
-      fail = (t.test())? true : false;
+      fail = (!t.hasConsistentAttributes())? true : false;
       if (fail) {
 	break;
       }
