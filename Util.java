@@ -1,6 +1,9 @@
 // provides needed utilities as static methods
 public class Util
 {
+  // tolerance
+  public static final double TOL = 2.3283064365386963e-10;
+
   // implements a radians-to-degrees utility method
   public static double rad2deg (double theta)
   {
@@ -45,7 +48,7 @@ public class Util
 				   final double beta,
 				   final double gamma)
   {
-    final double tol = 2.3283064365386963e-10;
+    final double tol = TOL;
     final double a0 = (0.5 * a * b * Math.sin(gamma));
     final double a1 = (0.5 * a * c * Math.sin(beta));
     final double a2 = (0.5 * b * c * Math.sin(alpha));

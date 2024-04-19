@@ -25,11 +25,26 @@ public class EquilateralTriangle extends Triangle
     System.out.printf("x: %f theta: %f\n", this.x, Util.rad2deg(this.theta));
     System.out.printf("area: %f\n", this.area);
     if (verbose) {
+      if (this.test()) {
+	System.out.printf("area-test: ");
+	System.out.println("PASS");
+      } else {
+	System.out.println("FAIL");
+      }
       System.out.printf("a: %f alpha: %f\n", this.a, Util.rad2deg(this.alpha));
       System.out.printf("b: %f beta: %f\n", this.b, Util.rad2deg(this.beta));
       System.out.printf("c: %f gamma: %f\n", this.c, Util.rad2deg(this.gamma));
     }
     System.out.println();
+  }
+
+  private boolean test ()
+  {
+    if (Math.abs(this.area() - this.area) > Util.TOL) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   public static void main (String args[])
