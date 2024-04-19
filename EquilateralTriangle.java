@@ -59,7 +59,7 @@ public class EquilateralTriangle extends Triangle
   public static void main (String args[])
   {
     EquilateralTriangle t = new EquilateralTriangle(1);
-    boolean final fail = t.test();
+    final boolean fail = t.hasConsistentAttributes();
     if (!fail) {
       t.info();
     }
