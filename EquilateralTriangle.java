@@ -35,19 +35,6 @@ public class EquilateralTriangle extends Triangle
     System.out.println();
   }
 
-  // tests that we get the same triangle area regardless of the used formula
-  private boolean test ()
-  {
-    final double tol = 2.3283064365386963e-10;
-    final double a0 = this.area;
-    final double a1 = (0.5 * this.x * this.x * Math.sin(this.theta));
-    if (Math.abs(a1 - a0) > tol) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   public static void main (String args[])
   {
     EquilateralTriangle t = new EquilateralTriangle(1);
