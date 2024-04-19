@@ -16,7 +16,7 @@ public class Triangle
   protected double area = 0;
 
   // triangle kind: equilateral, isosceles, or scalene
-  protected String kind = "";
+  private final String kind;
 
   // constructs a triangle with the given lengths if possible
   public Triangle (double a, double b, double c) {
@@ -29,7 +29,7 @@ public class Triangle
     this.c = c;
     this.angles();
     this.area();
-    this.kind();
+    this.kind = Util.kind(this.a, this.b, this.c);
   }
 
   // applies utility based on the cosine law to obtain the interior angles
@@ -49,10 +49,10 @@ public class Triangle
     this.area = Util.area(base, height);
   }
 
-  // determines the kind of triangle based on the given lengths
-  private void kind ()
+  // gets the triangle kind
+  public String kind ()
   {
-    this.kind = Util.kind(this.a, this.b, this.c);
+    return this.kind;
   }
 
   // displays the triangle info on the console

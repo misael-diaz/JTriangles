@@ -12,8 +12,6 @@ public class EquilateralTriangle extends Triangle
     super(x, x, x);
     this.x = x;
     this.area();
-    // although the constructor of the base class properly sets the kind we do so here
-    this.kind = "equilateral";
   }
 
   // implements a radians-to-degrees utility method
@@ -32,7 +30,7 @@ public class EquilateralTriangle extends Triangle
   public void info ()
   {
     System.out.println();
-    System.out.printf("kind: %s\n", this.kind);
+    System.out.printf("kind: %s\n", this.kind());
     System.out.printf("x: %f theta: %f\n", this.x, rad2deg(this.theta));
     System.out.printf("area: %f\n", this.area);
     if (verbose) {
