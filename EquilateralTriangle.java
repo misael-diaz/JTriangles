@@ -3,7 +3,9 @@ public class EquilateralTriangle extends Triangle
   // for preventing debugging code from executing
   private boolean verbose = false;
   // equilateral triangle sides
-  private double x = 0;
+  private final double x;
+  // equilateral triangle area
+  private final double area;
   // equilateral triangle interior angles
   private final double theta = Math.PI / 3;
 
@@ -11,12 +13,7 @@ public class EquilateralTriangle extends Triangle
   public EquilateralTriangle (double x) {
     super(x, x, x);
     this.x = x;
-    this.area();
-  }
-
-  // computes the area of an equilateral triangle
-  private void area ()
-  {
+    // computes the area of an equilateral triangle
     this.area = (0.25 * Math.sqrt(3) * this.x * this.x);
   }
 
