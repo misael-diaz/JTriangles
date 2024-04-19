@@ -3,20 +3,20 @@ import java.util.Random;
 public class Triangle
 {
   // triangle sides
-  private double a = 0;
-  private double b = 0;
-  private double c = 0;
+  protected double a = 0;
+  protected double b = 0;
+  protected double c = 0;
 
   // triangle interior angles
-  private double alpha = 0;
-  private double beta = 0;
-  private double gamma = 0;
+  protected double alpha = 0;
+  protected double beta = 0;
+  protected double gamma = 0;
 
   // triangle area
-  private double area = 0;
+  protected double area = 0;
 
   // triangle kind: equilateral, isosceles, or scalene
-  private String kind = "";
+  protected String kind = "";
 
   // constructs a triangle with the given lengths if possible
   public Triangle (double a, double b, double c) {
