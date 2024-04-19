@@ -35,7 +35,15 @@ public class Util
     if (a == b) {
       kind = (a == c)? "equilateral" : "isosceles";
     } else {
-      kind = (a == c)? "isosceles" : "scalene";
+      if (a == c) {
+	kind = "isosceles";
+      } else {
+	if (b == c) {
+	  kind = "isosceles";
+	} else {
+	  kind = "scalene";
+	}
+      }
     }
     return kind;
   }
