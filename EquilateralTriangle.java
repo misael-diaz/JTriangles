@@ -14,12 +14,6 @@ public class EquilateralTriangle extends Triangle
     this.area();
   }
 
-  // implements a radians-to-degrees utility method
-  private double rad2deg (double theta)
-  {
-    return ((180.0 / Math.PI) * theta);
-  }
-
   // computes the area of an equilateral triangle
   private void area ()
   {
@@ -31,12 +25,12 @@ public class EquilateralTriangle extends Triangle
   {
     System.out.println();
     System.out.printf("kind: %s\n", this.kind());
-    System.out.printf("x: %f theta: %f\n", this.x, rad2deg(this.theta));
+    System.out.printf("x: %f theta: %f\n", this.x, Util.rad2deg(this.theta));
     System.out.printf("area: %f\n", this.area);
     if (verbose) {
-      System.out.printf("a: %f alpha: %f\n", this.a, rad2deg(this.alpha));
-      System.out.printf("b: %f beta: %f\n", this.b, rad2deg(this.beta));
-      System.out.printf("c: %f gamma: %f\n", this.c, rad2deg(this.gamma));
+      System.out.printf("a: %f alpha: %f\n", this.a, Util.rad2deg(this.alpha));
+      System.out.printf("b: %f beta: %f\n", this.b, Util.rad2deg(this.beta));
+      System.out.printf("c: %f gamma: %f\n", this.c, Util.rad2deg(this.gamma));
     }
     System.out.println();
   }
