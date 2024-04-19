@@ -68,7 +68,7 @@ public class Triangle
   }
 
   // tests that the triangle lenghts and interior angles are consistent: yield same area
-  private boolean hasConsistentAttributes ()
+  protected boolean hasConsistentAttributes ()
   {
     return Util.checkArea(this.a, this.b, this.c, this.alpha, this.beta, this.gamma);
   }
