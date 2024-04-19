@@ -93,13 +93,13 @@ public class Triangle
     final double r_min = 1;
     final double r_max = 16;
     final int num_tests = 65536;
-    Random r = new Random();
+    JRandom r = new JRandom(new Random());
     for (int i = 0; i != num_tests; ++i) {
       double a, b, c;
       do {
-	a = r_min + r.nextDouble() * (r_max - r_min);
-	b = r_min + r.nextDouble() * (r_max - r_min);
-	c = r_min + r.nextDouble() * (r_max - r_min);
+	a = r.fetch();
+	b = r.fetch();
+	c = r.fetch();
       } while (!Util.validate(a, b, c));
       Triangle t = new Triangle(a, b, c);
       fail = (!t.hasConsistentAttributes())? true : false;
@@ -130,6 +130,6 @@ by the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
 References:
-[0] https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Random.html#nextDouble()
+[0] https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Random.html
 
 */

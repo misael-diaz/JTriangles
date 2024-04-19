@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class EquilateralTriangle extends Triangle
 {
   // for preventing debugging code from executing
@@ -79,8 +77,5 @@ Copyright (c) 2024 Misael Díaz-Maldonado
 This file is released under the GNU General Public License as published
 by the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
-
-References:
-[0] https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Random.html#nextDouble()
 
 */
