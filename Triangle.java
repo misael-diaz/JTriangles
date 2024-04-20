@@ -17,6 +17,7 @@ public class Triangle
 
   // triangle kind: equilateral, isosceles, or scalene
   private final String kind;
+  private final Tag tag;
 
   // constructs a triangle with the given lengths if possible
   public Triangle (double a, double b, double c) {
@@ -35,6 +36,7 @@ public class Triangle
     final double height = this.a * Math.sin(gamma);
     this.area = Util.area(base, height);
     this.kind = Util.kind(this.a, this.b, this.c);
+    this.tag = Util.tag(this.a, this.b, this.c);
   }
 
   // gets triangle area
@@ -49,10 +51,16 @@ public class Triangle
     return this.kind;
   }
 
+  public Tag tag ()
+  {
+    return this.tag;
+  }
+
   // displays the triangle info on the console
   public void info ()
   {
     System.out.println();
+    System.out.printf("tag: %s\n", this.tag);
     System.out.printf("kind: %s\n", this.kind);
     System.out.printf("a: %f alpha: %f\n", a, Util.rad2deg(this.alpha));
     System.out.printf("b: %f beta: %f\n", b, Util.rad2deg(this.beta));

@@ -48,6 +48,26 @@ public class Util
     return kind;
   }
 
+  // determines the tag of the triangle based on the given lengths
+  public static Tag tag (final double a, final double b, final double c)
+  {
+    Tag tag;
+    if (a == b) {
+      tag = (a == c)? Tag.EQUILATERAL : Tag.ISOSCELES;
+    } else {
+      if (a == c) {
+	tag = Tag.ISOSCELES;
+      } else {
+	if (b == c) {
+	  tag = Tag.ISOSCELES;
+	} else {
+	  tag = Tag.SCALENE;
+	}
+      }
+    }
+    return tag;
+  }
+
   // returns true if the given lengths and angles consistently yield the same area
   public static boolean checkArea (final double a,
 				   final double b,
