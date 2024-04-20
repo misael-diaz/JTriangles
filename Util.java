@@ -67,6 +67,25 @@ public class Util
     }
   }
 
+  public static boolean checkLenghts (final double a,
+				      final double b,
+				      final double c,
+				      final double alpha,
+				      final double beta,
+				      final double gamma)
+  {
+    final double tol = TOL;
+    if (Math.abs(Math.sin(alpha) / a - Math.sin(beta) / b) > tol) {
+      return false;
+    } else if (Math.abs(Math.sin(alpha) / a - Math.sin(gamma) / c) > tol) {
+      return false;
+    } else if (Math.abs(Math.sin(beta) / b - Math.sin(gamma) / c) > tol) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   // returns true if we can construct a triangle with the given lengths, false otherwise;
   // uses a geometric constraint test based on the fact that |cos(x)| <= 1
   public static boolean validate (final double a, final double b, final double c)
