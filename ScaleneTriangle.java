@@ -14,18 +14,6 @@ public class ScaleneTriangle extends Triangle
     }
   }
 
-  // displays the triangle info on the console
-  public void info ()
-  {
-    System.out.println();
-    System.out.printf("kind: %s\n", this.kind());
-    System.out.printf("a: %f alpha: %f\n", this.a, Util.rad2deg(this.alpha));
-    System.out.printf("b: %f beta: %f\n", this.b, Util.rad2deg(this.beta));
-    System.out.printf("c: %f gamma: %f\n", this.c, Util.rad2deg(this.gamma));
-    System.out.printf("area: %f\n", this.area());
-    System.out.println();
-  }
-
   // returns true if we don't have an scalene triangle, false otherwise
   private boolean invalid (final double x0, final double y0, final double z0)
   {
