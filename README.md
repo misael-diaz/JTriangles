@@ -19,5 +19,5 @@ jar --create --file JTriangle.jar --main-class com.midiaz.JTriangle -C bin com
 ## Execute
 
 ```sh
-java -jar JTriangle
+java -jar JTriangle.jar
 ```
