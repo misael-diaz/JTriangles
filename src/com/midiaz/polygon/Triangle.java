@@ -1,3 +1,9 @@
+package com.midiaz.polygon;
+
+import com.midiaz.util.Tag;
+import com.midiaz.util.JRandom;
+import com.midiaz.util.Util;
+
 import java.util.Random;
 
 public class Triangle

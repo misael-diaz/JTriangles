@@ -1,3 +1,7 @@
+package com.midiaz.util;
+
+import com.midiaz.util.Tag;
+
 // provides needed utilities as static methods
 public class Util
 {

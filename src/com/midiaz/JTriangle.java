@@ -1,4 +1,14 @@
+package com.midiaz;
+
+import com.midiaz.util.Tag;
+import com.midiaz.util.Util;
+import com.midiaz.polygon.Triangle;
+import com.midiaz.polygon.EquilateralTriangle;
+import com.midiaz.polygon.IsoscelesTriangle;
+import com.midiaz.polygon.ScaleneTriangle;
+
 import java.util.Scanner;
+
 // this is the main class
 public class JTriangle
 {
