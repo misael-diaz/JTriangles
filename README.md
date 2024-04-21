@@ -2,7 +2,7 @@
 
 ## Compile
 
-Instructions to compile the application.
+Instructions to compile the application in Mac OS X and GNU/Linux.
 
 First create the directory to host the classes:
 
@@ -10,13 +10,15 @@ First create the directory to host the classes:
 mkdir bin
 ```
 
+Note that the Java compiler won't create it for you so this is a mandatory step.
+
 Then issue the following instructions to the Java compiler:
 
 ```sh
 javac -d bin ./src/com/midiaz/*/*.java ./src/com/midiaz/JTriangle.java
 ```
 
-Upon completion the classes are going to be located in the binaries directory `bin`.
+Upon a successful build all the classes are going to be located in the binaries directory `bin`.
 
 You should obtain the same directory hierarchy as shown here:
 
@@ -39,10 +41,9 @@ bin/com/midiaz/polygon/Triangle.class
 
 ## Archive
 
-To package the application into a standalone Java application you need to archive it.
+To package the application into a standalone Java application you will need to archive it.
 
-
-To create a Java Archive (JAR) issue the following command:
+To create the Java Archive (JAR) issue the following command:
 
 ```sh
 jar --create --file JTriangle.jar --main-class com.midiaz.JTriangle -C bin com
