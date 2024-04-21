@@ -1,3 +1,8 @@
+package com.midiaz.polygon;
+
+import com.midiaz.util.Util;
+import com.midiaz.polygon.Triangle;
+
 public class EquilateralTriangle extends Triangle
 {
   // for preventing debugging code from executing

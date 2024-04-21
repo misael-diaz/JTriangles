@@ -1,3 +1,5 @@
+package com.midiaz.util;
+
 import java.util.Random;
 
 // defines a pseudo-random number generator that yields pseudo-random numbers in a range
@@ -8,7 +10,7 @@ public class JRandom
   private final double r_min = 1;
   private final double r_max = 16;
 
-  JRandom(Random r)
+  public JRandom(Random r)
   {
     this.r = r;
   }

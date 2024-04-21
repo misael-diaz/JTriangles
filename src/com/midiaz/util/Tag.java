@@ -1,3 +1,5 @@
+package com.midiaz.util;
+
 public enum Tag
 {
   EQUILATERAL,
