@@ -20,7 +20,6 @@ public class JTriangle
     final double a = sc.nextDouble();
     final double b = sc.nextDouble();
     final double c = sc.nextDouble();
-    System.out.printf("%f %f %f\n", a, b, c);
     final Tag tag = Util.tag(a, b, c);
     Triangle t;
     switch (tag) {
