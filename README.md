@@ -59,3 +59,17 @@ Java launcher:
 ```sh
 java -jar JTriangle.jar
 ```
+
+## Demo
+
+This shows the expected output for a unit equilateral triangle:
+
+```
+JTriangle App
+input the lenghts of a triangle: 1 1 1
+
+kind: equilateral
+x: 1.000000 theta: 60.000000
+area: 0.433013
+
+```
