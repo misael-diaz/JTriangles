@@ -23,6 +23,7 @@ public class EquilateralTriangle extends Triangle
   }
 
   // displays the triangle info on the console
+  @Override
   public void info ()
   {
     System.out.println();
